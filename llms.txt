@@ -1,0 +1,12 @@
+# dsh-dep-audit
+
+Dependency supply-chain hygiene audit for DeepSeek Harness (dsh) projects and
+profiles: peer-range resolvability, broken dist-tag detection, stale /
+missing-license / non-registry dependencies, and installed-vs-declared drift.
+
+- Install into dsh: `dsh plugin add dsh-dep-audit`
+- CLI: `npx dsh-dep-audit . --json`
+- Agent tool: `dep_audit(dir, options?)`
+- Report envelope: `dsh-dep-audit/v1` — `{ schema, target, offline, ok, summary, checks }`
+- Zero runtime dependencies (Node 18+ global fetch).
+- Complements dsh-poison-guard (malware scan) and dsh-plugin-doctor (publish readiness).

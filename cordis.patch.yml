@@ -1,0 +1,4 @@
+- insert:
+    - id: dep-audit
+      name: dsh-dep-audit
+      config: {}
