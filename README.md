@@ -1,5 +1,7 @@
 # dsh-dep-audit
 
+[![npm](https://img.shields.io/npm/v/dsh-dep-audit.svg)](https://www.npmjs.com/package/dsh-dep-audit)
+
 [![CI](https://github.com/zoahdev/dsh-dep-audit/actions/workflows/ci.yml/badge.svg)](https://github.com/zoahdev/dsh-dep-audit/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![dsh-plugin](https://img.shields.io/badge/dsh--plugin-verified-blue)](https://github.com/topics/dsh-plugin)
