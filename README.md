@@ -238,4 +238,9 @@ MIT © 2026 zoahdev
 - [dsh-quality-score](https://github.com/zoahdev/dsh-quality-score) - plugin quality scorecard + full-registry leaderboard
 - [dsh-ecosystem](https://github.com/zoahdev/dsh-ecosystem) - health scan, impact, trend, live dashboard
 - [dsh-tutorials](https://github.com/zoahdev/dsh-tutorials) - bilingual plugin pipeline tutorials
+## FAQ
+
+- **How do I install?** dsh plugin add dsh-dep-audit or run the CLI directly (see README).
+- **Does it need an API key?** No.
+- **Is it read-only?** Yes by default; any write/apply is an explicit flag.
 
