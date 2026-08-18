@@ -35,7 +35,7 @@ jobs:
       - name: Pack
         run: pnpm pack
       - name: Packaged integration + real tool invocation
-        run: node scripts/integration-test.mjs ./dsh-dep-audit-0.1.0.tgz
+        run: node scripts/integration-test.mjs
 
   dsh-smoke:
     runs-on: windows-latest
@@ -54,4 +54,4 @@ jobs:
       - name: Pack
         run: pnpm pack
       - name: Fresh DSH profile install + boot smoke
-        run: bash scripts/dsh-smoke.sh ./dsh-dep-audit-0.1.0.tgz
+        run: bash scripts/dsh-smoke.sh

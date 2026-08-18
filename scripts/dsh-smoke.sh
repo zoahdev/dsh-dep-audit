@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TGZ="${1:-$ROOT/dsh-dep-audit-0.1.0.tgz}"
+TGZ="${1:-$(ls "$ROOT"/dsh-dep-audit-*.tgz 2>/dev/null | head -n1)}"
 TMP="$(mktemp -d)"
 WEB_PID=""
 

@@ -17,7 +17,18 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const tgz = path.resolve(process.argv[2] ?? path.join(root, 'dsh-dep-audit-0.1.0.tgz'))
+import { readdirSync } from 'node:fs'
+const tgzArg = process.argv[2]
+const tgz = tgzArg !== undefined
+  ? path.resolve(tgzArg)
+  : (() => {
+      const found = readdirSync(root).filter((f) => f.startsWith('dsh-dep-audit-') && f.endsWith('.tgz'))
+      if (found.length === 0) {
+        console.error(`[integration] no dsh-dep-audit-*.tgz in ${root}`)
+        process.exit(1)
+      }
+      return path.join(root, found[0])
+    })()
 
 if (!existsSync(tgz)) {
   console.error(`[integration] missing tarball: ${tgz}`)
