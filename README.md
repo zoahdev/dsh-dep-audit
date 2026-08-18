@@ -232,3 +232,10 @@ CI 跑 [dsh-plugin-doctor](https://github.com/zoahdev/dsh-plugin-doctor) 预检�
 ## 许可证
 
 MIT © 2026 zoahdev
+## Related ecosystem tools
+
+- [dsh-dep-audit](https://github.com/zoahdev/dsh-dep-audit) - dependency supply-chain hygiene
+- [dsh-quality-score](https://github.com/zoahdev/dsh-quality-score) - plugin quality scorecard + full-registry leaderboard
+- [dsh-ecosystem](https://github.com/zoahdev/dsh-ecosystem) - health scan, impact, trend, live dashboard
+- [dsh-tutorials](https://github.com/zoahdev/dsh-tutorials) - bilingual plugin pipeline tutorials
+
