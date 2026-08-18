@@ -62,6 +62,13 @@ describe('satisfies', () => {
     expect(satisfies('1.9.0', '1.x')).toBe(true)
   })
 
+  it('handles bare-major comparator bounds like <5 and >=1.2', () => {
+    expect(satisfies('4.0.1', '>=4.0.0 <5')).toBe(true)
+    expect(satisfies('5.0.0', '>=4.0.0 <5')).toBe(false)
+    expect(satisfies('1.2.3', '>=1.2')).toBe(true)
+    expect(satisfies('1.1.9', '>=1.2')).toBe(false)
+  })
+
   it('handles comparator chains and unions', () => {
     expect(satisfies('1.5.0', '>=1.0.0 <2.0.0')).toBe(true)
     expect(satisfies('2.1.0', '>=1.0.0 <2.0.0')).toBe(false)

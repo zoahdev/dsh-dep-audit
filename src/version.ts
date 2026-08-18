@@ -129,18 +129,23 @@ export function satisfiesOne(version: string, token: string): boolean {
   const trimmed = token.trim()
   if (trimmed === '' || trimmed === '*' || trimmed === 'x' || trimmed === 'latest') return true
 
-  // Comparator chains: ">=1.0.0 <2.0.0".
+  // Comparator chains: ">=1.0.0 <2.0.0" (also bare majors/minors like "<5").
   if (/^([<>]=?|=)\s*[0-9]/.test(trimmed)) {
     const parts = trimmed.split(/\s+/)
     for (const part of parts) {
       const match = /^(<=|>=|<|>|=)?\s*(.+)$/.exec(part)
       if (match === null) return false
       const op = match[1] === undefined || match[1] === '' ? '=' : match[1]
-      const base = parseVersion(match[2] ?? '')
-      if (base === null) return false
-      if (op === '=' && parsed.prerelease !== null) {
-        // Allow exact prerelease match.
+      const raw = match[2] ?? ''
+      let base = parseVersion(raw)
+      if (base === null) {
+        // Bare major/minor comparator bounds: "<5" -> "<5.0.0", ">=1.2" -> ">=1.2.0".
+        const partial = /^(\d+)(?:\.(\d+))?(?:\.(\d+))?$/.exec(raw)
+        if (partial !== null) {
+          base = parseVersion(`${partial[1]}.${partial[2] ?? '0'}.${partial[3] ?? '0'}`)
+        }
       }
+      if (base === null) return false
       if (!satisfiesComparator(parsed, op, base)) return false
     }
     return true

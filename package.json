@@ -1,6 +1,6 @@
 {
   "name": "dsh-dep-audit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dependency supply-chain hygiene audit for DeepSeek Harness (dsh) projects and profiles: peer-range resolvability, broken dist-tag detection, stale/missing-license/non-registry dependencies, and installed-vs-declared drift. Complements dsh-poison-guard (malware scan) and dsh-plugin-doctor (publish readiness).",
   "type": "module",
   "main": "lib/index.js",
